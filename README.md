@@ -1,0 +1,1 @@
+**WARNING: This project is currenty UNLICENSED and is pending an appropriate open source license. For now, please do not make copies or distribute this project, or use it in any public-facing projects.**
