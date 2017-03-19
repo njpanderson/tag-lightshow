@@ -1,0 +1,67 @@
+[
+	{
+		"name": "Header",
+		"dropletType": "text",
+		"value": "My Light Show",
+		"attachmentIds": ["h1"],
+		"editable": {
+			"value": {
+				"type": "text",
+				"label": "Header label",
+				"value": "My Light Show",
+				"required": true
+			}
+		}
+	},
+	{
+		"name": "Section",
+		"dropletType": "attribute",
+		"key": "class",
+		"value": "board",
+		"attachmentIds": ["section_class"]
+	},
+	{
+		"name": "Letter button",
+		"dropletType": "element",
+		"innerHTML": "",
+		"tagName": "a",
+		"attrs": {
+			"href": "#",
+			"class": "button-blue"
+		},
+		"attachmentIds": ["button"],
+		"editable": {
+			"attrs": {
+				"class": {
+					"type": "dropdown",
+					"required": true,
+					"label": "Choose a colour",
+					"options": ["button-blue", "button-red", "button-yellow", "button-pink", "button-green"],
+					"value": "button-blue"
+				},
+				"title": {
+					"type": "text",
+					"required": true,
+					"placeholder": "Add a title"
+				}
+			},
+			"innerHTML": {
+				"type": "text",
+				"required": true,
+				"label": "Type one letter",
+				"placeholder": "A, B, C etc...",
+				"maxlength": 1
+			}
+		}
+	},
+	{
+		"name": "Javascript",
+		"dropletType": "element",
+		"tagName": "script",
+		"attachmentIds": ["script_main"],
+		"attrs": {
+			"src": "dist/js/lib/lightshow.js",
+			"type": "text/javascript"
+		}
+	}
+]
