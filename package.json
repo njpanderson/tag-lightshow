@@ -1,5 +1,5 @@
 {
-  "name": "tag-demo",
+  "name": "tag-lightshow",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "dependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
-    "njp-tag": "file:///Users/neilanderson/Sites/tag",
+    "njp-tag": "git+https://github.com/njpanderson/tag.git#dev",
     "webpack": "^2.2.1"
   },
   "devDependencies": {
