@@ -1,15 +1,29 @@
-const webpack = require('webpack');
+const webpack = require('webpack'),
+	ProgressBarPlugin = require('progress-bar-webpack-plugin'),
+	WebpackNotifierPlugin = require('webpack-notifier');
 
 var production = (process.env.NODE_ENV === 'production'),
-	plugins = [];
+	plugins = [
+		new WebpackNotifierPlugin({
+			alwaysNotify: true
+		}),
+		new webpack.DefinePlugin({
+			'process.env': {
+				'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+			}
+		}),
+		new ProgressBarPlugin(),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendor',
+			minChunks: Infinity
+		})
+	];
 
 if (production) {
 	plugins = plugins.concat([
 		new webpack.optimize.UglifyJsPlugin({
 			mangle: true,
-			compress: {
-				warnings: false
-			}
+			sourceMap: true
 		}),
 	]);
 } else {
@@ -27,6 +41,16 @@ var config = {
 		extensions: ['.js', '.jsx']
 	},
 	entry: {
+		vendor: [
+			'react',
+			'redux',
+			'react-redux',
+			'react-dom',
+			'interact.js',
+			'promise',
+			'superagent',
+			'superagent-promise'
+		],
 		main: './src/js/tag.js',
 		view: './src/js/view.js'
 	},
@@ -34,11 +58,7 @@ var config = {
 		filename: '[name].min.js',
 		publicPath: 'dist/js/'
 	},
-	plugins: [
-		new webpack.LoaderOptionsPlugin({
-			debug: true
-		})
-	],
+	plugins: plugins,
 	module: {
 		rules: [{
 			test: /\.jsx?$/,

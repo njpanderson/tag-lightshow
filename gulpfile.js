@@ -8,7 +8,6 @@ var gulp = require('gulp'),
 	webpack = require('webpack-stream'),
 	plumber = require('gulp-plumber'),
 	notify = require('gulp-notify'),
-	webpack_conf = require('./webpack.config.js'),
 	watch = false;
 
 const env = {
@@ -16,7 +15,11 @@ const env = {
 };
 
 gulp.task('scripts:dev', ['clean'], () => {
+	var webpack_conf;
+
 	process.env.NODE_ENV = 'development';
+
+	webpack_conf = require('./webpack.config.js');
 	webpack_conf.watch = watch;
 
 	return gulp.src('src/js/*.js')
@@ -30,7 +33,11 @@ gulp.task('scripts:dev', ['clean'], () => {
 });
 
 gulp.task('scripts:prod', ['clean'], () => {
+	var webpack_conf;
+
 	process.env.NODE_ENV = 'production';
+
+	webpack_conf = require('./webpack.config.js');
 	webpack_conf.watch = false;
 
 	return gulp.src('src/js/*.js')
