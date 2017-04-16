@@ -14,7 +14,7 @@ const env = {
 	path_dist: 'public_html/dist'
 };
 
-gulp.task('scripts:dev', ['clean'], () => {
+gulp.task('scripts:dev', ['clean:js'], () => {
 	var webpack_conf;
 
 	process.env.NODE_ENV = 'development';
@@ -32,7 +32,7 @@ gulp.task('scripts:dev', ['clean'], () => {
 		.pipe(notify('Webpack build complete'));
 });
 
-gulp.task('scripts:prod', ['clean'], () => {
+gulp.task('scripts:prod', ['clean:js'], () => {
 	var webpack_conf;
 
 	process.env.NODE_ENV = 'production';
@@ -51,7 +51,7 @@ gulp.task('scripts:prod', ['clean'], () => {
 		.pipe(notify('Webpack build complete'));
 });
 
-gulp.task('styles', ['clean'], () => {
+gulp.task('styles', ['clean:styles'], () => {
 	return gulp.src('src/styles/*.scss')
 		.pipe(plumber())
 		.pipe(sass({
@@ -67,25 +67,45 @@ gulp.task('styles', ['clean'], () => {
 		.pipe(notify('Sass build complete'));
 });
 
-gulp.task('copy:lib', ['clean'], () => {
+gulp.task('copy:lib', () => {
 	return gulp.src('src/js/lib/*')
 		.pipe(gulp.dest(env.path_dist + '/js/lib'))
 });
 
-gulp.task('copy:img', ['clean'], () => {
+gulp.task('copy:img', ['clean:img'], () => {
 	return gulp.src('src/img/**/*')
 		.pipe(gulp.dest(env.path_dist + '/img'))
 });
 
-gulp.task('copy:fonts', ['clean'], () => {
+gulp.task('copy:fonts', () => {
 	return gulp.src('src/fonts/*')
 		.pipe(gulp.dest(env.path_dist + '/fonts'))
 });
 
-gulp.task('clean', () => {
+gulp.task('clean:js', () => {
 	if (!watch) {
 		return del([
-			env.path_dist
+			env.path_dist + '/js'
+		]);
+	} else {
+		return true;
+	}
+});
+
+gulp.task('clean:styles', () => {
+	if (!watch) {
+		return del([
+			env.path_dist + '/css'
+		]);
+	} else {
+		return true;
+	}
+});
+
+gulp.task('clean:img', () => {
+	if (!watch) {
+		return del([
+			env.path_dist + '/img'
 		]);
 	} else {
 		return true;
@@ -96,6 +116,7 @@ gulp.task('watch', () => {
 	watch = true;
 	gulp.watch('src/js/**/*.js*', ['scripts:dev', 'copy:lib']);
 	gulp.watch('src/styles/**/*.scss', ['styles']);
+	gulp.watch('src/img/**/*', ['copy:img']);
 });
 
 gulp.task('default', ['scripts:prod', 'copy:lib', 'copy:img', 'copy:fonts', 'styles']);
