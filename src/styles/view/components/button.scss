@@ -1,11 +1,17 @@
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0
+}
+
 button {
-	-webkit-display: none;
+	-webkit-appearance: none;
 	position: relative;
 	margin: 0 5px;
 	outline: 0;
 	border: 0;
 	padding: 0;
 	font: 24px sans-serif;
+	background-color: transparent;
 	cursor: pointer;
 
 	span {
