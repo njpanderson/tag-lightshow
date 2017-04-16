@@ -1,11 +1,13 @@
-(function($) {
+(function($, view) {
 	var lit = {},
 		pattern_on = false,
-		letters = document.querySelectorAll('.buttons a'),
-		container = document.querySelector('.buttons');
+		$letters = $('.buttons a'),
+		$container = $('.buttons'),
+		animator = $({ value: 0 }),
+		letter_re = new RegExp('[a-z]+', 'i');
 
 	// inject spans and apply class
-	$(letters).each(function() {
+	$letters.each(function() {
 		var $this = $(this);
 
 		$this
@@ -13,30 +15,52 @@
 			.attr('data-key', $.trim($this.text()));
 	});
 
-	$(container).on('click', 'a', function(event) {
+	$container.on('click', 'a', function(event) {
 		event.preventDefault();
-		alert(this.textContent);
 	});
 
-	// $('#lights-start').click(function() { lightPattern4(); });
-	$('#lights-start').click(lightPattern);
+	$(document).on('click', 'button', buttonRoute);
+
+	function buttonRoute(event) {
+		var $this = $(this);
+
+		if (!$letters.length) {
+			view.dialog(
+				'No letters yet!',
+				[
+					'Don’t forget to add some letters.',
+					'You can do this with the “Letter button” Droplet.'
+				]
+			);
+		} else {
+			if ($this[0].id === 'lights-start') {
+				lightPattern();
+			} else {
+				stopAll();
+			}
+		}
+
+		$this.blur();
+	}
 
 	function keydown(event) {
 		var letter = String.fromCharCode(event.keyCode).toLowerCase();
 
-		if (lit[letter]) {
-			lit[letter].forEach(function(letter) {
-				light(letter, false);
-			});
-
-			lit[letter] = null;
-		} else {
-			lit[letter] = document.querySelectorAll('a[data-key="' + letter + '"]');
-
+		if (letter_re.test(letter) !== false) {
 			if (lit[letter]) {
 				lit[letter].forEach(function(letter) {
-					light(letter, true);
+					light(letter, false);
 				});
+
+				lit[letter] = null;
+			} else {
+				lit[letter] = document.querySelectorAll('a[data-key="' + letter + '"]');
+
+				if (lit[letter]) {
+					lit[letter].forEach(function(letter) {
+						light(letter, true);
+					});
+				}
 			}
 		}
 	}
@@ -49,27 +73,34 @@
 		}
 	}
 
+	function stopAll() {
+		animator.stop(true);
+		pattern_on = false;
+
+		$letters.each(function() {
+			light(this, false);
+		});
+
+		$container.removeClass('all-lit');
+	}
+
 	function lightPattern() {
 		var letter;
 
-		if (!letters.length) {
-			alert('No letters yet! Did you forget to add some?');
-			return;
-		}
-
-		letters.forEach(function(letter) {
-			light(letter, false);
-		});
-
 		if (!pattern_on) {
-			pattern_on = true;
+			$letters.each(function() {
+				light(this, false);
+			});
 
-			$('<div>').animate({
+			pattern_on = true;
+			animator[0].value = 0;
+
+			animator.animate({
 				value: 100
 			}, {
 				duration: 5000,
 				step: function(now) {
-					if ((letter = letters[Math.round(letters.length / 100 * now)])) {
+					if ((letter = $letters[Math.round($letters.length / 100 * now)])) {
 						light(letter, true);
 					}
 				},
@@ -79,20 +110,22 @@
 	}
 
 	function lightPattern2() {
-		letters.forEach(function(letter) {
-			light(letter, false);
+		$letters.each(function() {
+			light(this, false);
 		});
 
-		$('<div>').animate({
+		animator[0].value = 0;
+
+		animator.animate({
 			value: 100
 		}, {
 			duration: 4000,
 			easing: 'linear',
 			step: function(now) {
 				if (Math.round(now) % 20 > 10) {
-					container.classList.add('all-lit');
+					$container.addClass('all-lit');
 				} else {
-					container.classList.remove('all-lit');
+					$container.removeClass('all-lit');
 				}
 			},
 			done: function() {
@@ -106,29 +139,29 @@
 
 		count = count || 1;
 		reverse = (typeof reverse !== 'undefined' ? reverse : false);
+		animator[0].value = 0;
+		$container.removeClass('all-lit');
 
-		container.classList.remove('all-lit');
-
-		$('<div>').animate({
+		animator.animate({
 			value: 100
 		}, {
 			duration: 1000,
 			easing: 'linear',
 			step: function(now) {
 				var factor = (reverse ? now : now - 100),
-					index = Math.abs(Math.floor(factor / 100 * ((letters.length - 1) / 2))),
-					index_up = Math.floor((letters.length - 1) - index);
+					index = Math.abs(Math.floor(factor / 100 * (($letters.length - 1) / 2))),
+					index_up = Math.floor(($letters.length - 1) - index);
 
 				if (prev !== undefined) {
-					light(letters[prev], false);
+					light($letters[prev], false);
 				}
 
 				if (prev_up !== undefined) {
-					light(letters[prev_up], false);
+					light($letters[prev_up], false);
 				}
 
-				light(letters[index], true);
-				light(letters[index_up], true);
+				light($letters[index], true);
+				light($letters[index_up], true);
 
 				prev = index;
 				prev_up = index_up;
@@ -149,24 +182,26 @@
 
 		count = count || 1;
 
-		letters.forEach(function(letter) {
-			light(letter, false);
+		$letters.each(function() {
+			light(this, false);
 		});
 
-		$('<div>').animate({
+		animator[0].value = 0;
+
+		animator.animate({
 			value: 100
 		}, {
 			duration: 1000,
 			easing: 'linear',
 			step: function(now) {
-				var index = Math.floor((letters.length / 100) * now);
+				var index = Math.floor(($letters.length / 100) * now);
 
-				if (index < (letters.length)) {
+				if (index < ($letters.length)) {
 					if (prev !== undefined) {
-						light(letters[prev], false);
+						light($letters[prev], false);
 					}
 
-					light(letters[index], true);
+					light($letters[index], true);
 
 					prev = index;
 				}
@@ -185,4 +220,4 @@
 	}
 
 	window.addEventListener('keydown', keydown);
-}(window.jQuery));
+}(window.jQuery, window.view));

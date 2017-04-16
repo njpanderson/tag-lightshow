@@ -1,9 +1,37 @@
-.board {
+main > section {
 	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-	border: 8px ridge #bababa;
+	border: 4px ridge #bababa;
 	border-radius: 25px;
-	padding: 10px;
-	background: url(../img/ep_naturalwhite.png);
+	padding: 20px;
+
+	&.board-stone {
+		background: url(../img/board/stone.png);
+	}
+
+	&.board-playstation {
+		border-color: #3879e6;
+		background: url(../img/board/playstation.png);
+	}
+
+	&.board-stars {
+		border-color: #e6dd1e;
+		background: url(../img/board/stars.png);
+	}
+
+	&.board-food {
+		border-color: #c7a344;
+		background: url(../img/board/food.png);
+	}
+
+	&.board-sports {
+		border-color: #f0223e;
+		background: url(../img/board/sports.png);
+	}
+
+	&.board-trees {
+		border-color: #70c72d;
+		background: url(../img/board/trees.png);
+	}
 }
 
 .buttons {
@@ -31,10 +59,10 @@
 .buttons span {
 	display: block;
 	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3), -2px -2px 0 rgba(0, 0, 0, 0.3);
-	border-left: 8px solid #676767;
-	border-top: 8px solid #515151;
-	border-right: 8px solid #9d9d9d;
-	border-bottom: 8px solid #b4b4b4;
+	border-left: 5px solid #676767;
+	border-top: 5px solid #515151;
+	border-right: 5px solid #9d9d9d;
+	border-bottom: 5px solid #b4b4b4;
 	border-radius: 25px;
 	padding:	5px;
 	letter-spacing: -3px;

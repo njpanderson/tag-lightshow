@@ -1,3 +1,5 @@
+@import 'reset';
+
 @font-face {
 	font-family: 'Fortuna Dot';
 	src: url('../fonts/fortuna_dot.woff2') format('woff2'),
@@ -7,12 +9,14 @@
 }
 
 body {
-	background-color: #444;
+	padding: 20px;
+	background-color: #636363;
 }
 
 h1 {
+	margin: .5em 0;
 	font: 42px sans-serif;
-	color: #fcffb0;
+	color: #f1fb00;
 }
 
 header h1 {
@@ -20,7 +24,7 @@ header h1 {
 }
 
 form {
-	margin: 2em 0;
+	margin-top: 2em;
 	text-align: center;
 }
 

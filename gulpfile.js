@@ -73,7 +73,7 @@ gulp.task('copy:lib', ['clean'], () => {
 });
 
 gulp.task('copy:img', ['clean'], () => {
-	return gulp.src('src/img/*')
+	return gulp.src('src/img/**/*')
 		.pipe(gulp.dest(env.path_dist + '/img'))
 });
 
@@ -94,7 +94,7 @@ gulp.task('clean', () => {
 
 gulp.task('watch', () => {
 	watch = true;
-	gulp.watch('src/js/**/*.js*', ['scripts:dev']);
+	gulp.watch('src/js/**/*.js*', ['scripts:dev', 'copy:lib']);
 	gulp.watch('src/styles/**/*.scss', ['styles']);
 });
 

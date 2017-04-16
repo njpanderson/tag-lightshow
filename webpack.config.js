@@ -8,6 +8,7 @@ var production = (process.env.NODE_ENV === 'production'),
 			alwaysNotify: true
 		}),
 		new webpack.DefinePlugin({
+			'PRODUCTION': (production),
 			'process.env': {
 				'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 			}
@@ -47,6 +48,7 @@ var config = {
 			'react-redux',
 			'react-dom',
 			'interact.js',
+			'popper.js',
 			'promise',
 			'superagent',
 			'superagent-promise'
