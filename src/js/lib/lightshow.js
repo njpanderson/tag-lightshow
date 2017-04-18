@@ -12,7 +12,7 @@
 
 		$this
 			.addClass('letter-' + $.trim($this.text()))
-			.attr('data-key', $.trim($this.text()));
+			.attr('data-key', $.trim($this.text().toLowerCase()));
 	});
 
 	$container.on('click', 'a', function(event) {
@@ -48,19 +48,17 @@
 
 		if (letter_re.test(letter) !== false) {
 			if (lit[letter]) {
-				lit[letter].forEach(function(letter) {
-					light(letter, false);
+				lit[letter].each(function() {
+					light(this, false);
 				});
 
 				lit[letter] = null;
 			} else {
-				lit[letter] = document.querySelectorAll('a[data-key="' + letter + '"]');
+				lit[letter] = $('a[data-key="' + letter + '"]');
 
-				if (lit[letter]) {
-					lit[letter].forEach(function(letter) {
-						light(letter, true);
-					});
-				}
+				lit[letter].each(function() {
+					light(this, true);
+				});
 			}
 		}
 	}
