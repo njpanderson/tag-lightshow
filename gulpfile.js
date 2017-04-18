@@ -14,7 +14,7 @@ const env = {
 	path_dist: 'public_html/dist'
 };
 
-gulp.task('scripts:dev', ['clean:js'], () => {
+gulp.task('scripts:dev', ['clean:js', 'copy:lib'], () => {
 	var webpack_conf;
 
 	process.env.NODE_ENV = 'development';
@@ -32,7 +32,7 @@ gulp.task('scripts:dev', ['clean:js'], () => {
 		.pipe(notify('Webpack build complete'));
 });
 
-gulp.task('scripts:prod', ['clean:js'], () => {
+gulp.task('scripts:prod', ['clean:js', 'copy:lib'], () => {
 	var webpack_conf;
 
 	process.env.NODE_ENV = 'production';
@@ -67,7 +67,7 @@ gulp.task('styles', ['clean:styles'], () => {
 		.pipe(notify('Sass build complete'));
 });
 
-gulp.task('copy:lib', () => {
+gulp.task('copy:lib', ['clean:lib'], () => {
 	return gulp.src('src/js/lib/*')
 		.pipe(gulp.dest(env.path_dist + '/js/lib'))
 });
@@ -85,7 +85,17 @@ gulp.task('copy:fonts', () => {
 gulp.task('clean:js', () => {
 	if (!watch) {
 		return del([
-			env.path_dist + '/js'
+			env.path_dist + '/js/*.js'
+		]);
+	} else {
+		return true;
+	}
+});
+
+gulp.task('clean:lib', () => {
+	if (!watch) {
+		return del([
+			env.path_dist + '/js/lib/*'
 		]);
 	} else {
 		return true;
