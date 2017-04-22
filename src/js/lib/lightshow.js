@@ -23,7 +23,7 @@
 
 	function buttonRoute(event) {
 		var $this = $(this);
-
+		console.log($letters.length);
 		if (!$letters.length) {
 			view.dialog(
 				'No letters yet!',

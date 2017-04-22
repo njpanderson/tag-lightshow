@@ -1,6 +1,7 @@
-const App = require('njp-tag').default;
+var App = require('njp-tag'),
+	app, pallet;
 
-var app = new App({
+app = new App({
 	onElementRender: function(markup, droplet, zone, is_output) {
 		if (droplet.name === 'Letter button' && is_output) {
 			markup.innerHTML = '<span>' + markup.innerHTML + '</span>';
@@ -10,7 +11,7 @@ var app = new App({
 	}
 });
 
-var pallet = [
+pallet = [
 	{
 		"name": "Header",
 		"dropletType": "text",
@@ -108,23 +109,12 @@ var pallet = [
 		},
 		"innerHTML": "<span>Stop</span>",
 		"guidance": "<p>Using <b>JavaScript</b>, this button will stop the light show.</p>"
-	},
-	{
-		"name": "JavaScript",
-		"dropletType": "element",
-		"tagName": "script",
-		"attachmentIds": ["script_main"],
-		"attrs": {
-			"src": "dist/js/lib/lightshow.js",
-			"type": "text/javascript"
-		},
-		"guidance": "<p>This will <b>make everything work together!</b> Don’t forget to drop it onto the template before using “Run”.</p>"
 	}
 ];
 
 app.load(
 	'templates/default.html',
 	pallet
-).catch((error) => {
+).catch(function(error) {
 	console.error(error);
 });

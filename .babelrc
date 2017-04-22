@@ -1,11 +1,10 @@
 {
-  "plugins": ["transform-object-rest-spread"],
-  "presets": [
-		"react",
+	"plugins": ["external-helpers"],
+	"presets": [
 		["env", {
 			"targets": {
 				"browsers": ["last 2 versions", "firefox >= 35"]
 			}
 		}]
-  ]
+	]
 }

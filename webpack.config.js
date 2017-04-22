@@ -8,16 +8,11 @@ var production = (process.env.NODE_ENV === 'production'),
 			alwaysNotify: true
 		}),
 		new webpack.DefinePlugin({
-			'PRODUCTION': (production),
 			'process.env': {
 				'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
 			}
 		}),
-		new ProgressBarPlugin(),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'vendor',
-			minChunks: Infinity
-		})
+		new ProgressBarPlugin()
 	];
 
 if (production) {
@@ -38,21 +33,7 @@ if (production) {
 var config = {
 	devtool: production ? 'source-map' : 'inline-source-map',
 	cache: !production,
-	resolve: {
-		extensions: ['.js', '.jsx']
-	},
 	entry: {
-		vendor: [
-			'react',
-			'redux',
-			'react-redux',
-			'react-dom',
-			'interact.js',
-			'popper.js',
-			'promise',
-			'superagent',
-			'superagent-promise'
-		],
 		main: './src/js/tag.js',
 		view: './src/js/view.js'
 	},
@@ -62,21 +43,11 @@ var config = {
 	},
 	plugins: plugins,
 	module: {
-		rules: [{
-			test: /\.jsx?$/,
-			exclude: /node_modules\/(?!njp-tag)/,
-			loader: 'babel-loader'
-		}, {
-			test: /\.svg$/,
-			loader: 'svg-sprite-loader?' + JSON.stringify({
-				name: 'icon-[1]',
-				prefixize: true,
-				regExp: './img/svg/(.*)\\.svg'
-			})
-		},{
-			test: /\.scss$/,
-			loader: 'style-loader!css-loader!sass-loader'
-		}]
+		// rules: [{
+		// 	test: /\.js$/,
+		// 	exclude: /node_modules/,
+		// 	loader: 'babel-loader'
+		// }]
 	}
 };
 

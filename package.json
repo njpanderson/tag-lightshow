@@ -2,21 +2,24 @@
   "name": "tag-lightshow",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/js/tag.js",
   "scripts": {
-    "webpack-show-modules": "NODE_ENV=production webpack --config webpack.config.prod.js --display-modules && rm webpack-temp*",
+    "build": "NODE_ENV=production gulp",
+    "dev": "NODE_ENV=production gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Neil Anderson <njp.anderson@icloud.com> (http://neilinscotland.net)",
   "license": "MIT",
-  "dependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "njp-tag": "git+https://github.com/njpanderson/tag.git#dev",
-    "webpack": "^2.2.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njpanderson/tag-lightshow.git"
   },
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.4.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
@@ -27,6 +30,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "progress-bar-webpack-plugin": "^1.9.3",
+    "webpack": "^2.4.1",
     "webpack-notifier": "^1.5.0",
     "webpack-stream": "^3.2.0"
   }
