@@ -1,33 +1,30 @@
 @import 'reset';
 
+$font-family-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 @font-face {
-	font-family: 'Fortuna Dot';
-	src: url('../fonts/fortuna_dot.woff2') format('woff2'),
-		url('../fonts/fortuna_dot.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+	font-family: 'Neon Thick';
+	src: url('../fonts/neon.woff') format('woff');
 }
 
 body {
-	padding: 20px;
-	background-color: #636363;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	padding: 0;
+	margin: 0;
 }
 
-h1 {
-	margin: .5em 0;
-	font-size: 42px;
-	color: #f1fb00;
+.view {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 
-header h1 {
-	text-align: center;
+.note {
+	text-shadow: -1px -1px 0 #88898b;
+	font: 1em $font-family-text;
+	color: #dfdde0;
 }
 
-form {
-	margin-top: 2em;
-	text-align: center;
-}
-
-@import 'view/components/board';
-@import 'view/components/button';
+@import 'components/sign';
+@import 'components/buttons';

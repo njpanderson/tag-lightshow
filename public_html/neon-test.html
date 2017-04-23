@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<style>
+@font-face {
+	font-family: 'Neon Thick';
+	src: url('dist/fonts/neon.woff') format('woff');
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.sign {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: black;
+	padding: 20px;
+	text-align: center;
+	background-image: url(dist/img/sign/speaker.png);
+}
+
+.sign p {
+	position: relative;
+	line-height: 1;
+	font-family: 'Neon Thick';
+	letter-spacing: -3px;
+}
+
+.sign p:before,
+.sign p:after {
+	content: '';
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	border-radius: 3px;
+	width: 100%;
+	height: 6px;
+	background: linear-gradient(
+		to bottom,
+		#4c4c4c 0%,
+		#595959 12%,
+		#666666 25%,
+		#474747 39%,
+		#2c2c2c 50%,
+		#000000 51%,
+		#111111 60%,
+		#2b2b2b 76%,
+		#1c1c1c 91%,
+		#131313 100%
+	);
+}
+
+.sign p:before {
+	top: 40%;
+}
+
+.sign p:after {
+	top: 65%;
+}
+
+.sign a {
+	position: relative;
+	z-index: 2;
+	text-decoration: none;
+	font-size: 120px;
+	text-shadow: 10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.sign a:not(.lit) {
+	text-shadow: 1px 1px 0 rgba(100, 100, 100, .8),
+		-1px -1px 0 rgba(100, 100, 100, .8);
+}
+
+.sign a.lit {
+	color: rgba(255, 255, 255, .95);
+}
+
+.sign a.red:not(.lit) {
+	color: #d0143a;
+}
+
+.sign a.red.lit {
+	text-shadow: 0 0 20px #ff0039,
+		-10px -10px 5px rgba(255, 0, 57, .4),
+		2px 2px 3px #ff0039,
+		-2px -2px 3px #ff0039,
+		10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.sign a.yellow:not(.lit) {
+	color: #ced60a;
+}
+
+.sign a.yellow.lit {
+	text-shadow: 0 0 20px #e4ee00,
+		-10px -10px 5px rgba(228, 238, 0, .1),
+		2px 2px 3px #e4ee00,
+		-2px -2px 3px #e4ee00,
+		10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.sign a.pink:not(.lit) {
+	color: #ce0fc0;
+}
+
+.sign a.pink.lit {
+	text-shadow: 0 0 20px #ff00ed,
+		-10px -10px 5px rgba(255, 0, 237, .2),
+		2px 2px 3px #ff00ed,
+		-2px -2px 3px #ff00ed,
+		10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.sign a.blue:not(.lit) {
+	color: #4470f3;
+}
+
+.sign a.blue.lit {
+	text-shadow: 0 0 20px #4470f3,
+		-10px -10px 5px rgba(68, 112, 243, .2),
+		2px 2px 3px #4470f3,
+		-2px -2px 3px #4470f3,
+		10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.sign a.green:not(.lit) {
+	color: #12a22d;
+}
+
+.sign a.green.lit {
+	text-shadow: 0 0 20px #00f62d,
+		-10px -10px 5px rgba(0, 246, 45, .2),
+		2px 2px 3px #00f62d,
+		-2px -2px 3px #00f62d,
+		10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.sign a.white:not(.lit) {
+	color: #dcdcde;
+}
+
+.sign a.white.lit {
+	text-shadow: 0 0 20px #f7f9ff,
+		-10px -10px 5px rgba(255, 255, 255, .2),
+		2px 2px 3px #f7f9ff,
+		-2px -2px 3px #f7f9ff,
+		10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.sign a.teal:not(.lit) {
+	color: #46b79a;
+}
+
+.sign a.teal.lit {
+	text-shadow: 0 0 20px #45ffce,
+		-10px -10px 5px rgba(69, 255, 206, .2),
+		2px 2px 3px #45ffce,
+		-2px -2px 3px #45ffce,
+		10px 10px 4px rgba(0, 0, 0, .7);
+}
+
+.buttons {
+	transition: opacity .2s ease-out;
+	-webkit-transition: opacity .2s ease-out;
+	display: flex;
+	opacity: .8;
+	margin: 0;
+	padding: 2em 4em;
+	justify-content: center;
+}
+
+.buttons:hover {
+	opacity: 1;
+}
+
+.buttons button:not(:first-child) {
+	margin-left: 10px;
+}
+
+button {
+	-webkit-transition: transform .15s ease-in-out;
+	transition: transform .15s ease-in-out;
+	position: relative;
+	z-index: 1;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	overflow: hidden;
+	box-shadow: 5px 5px 0 rgba(0, 0, 0, .3);
+	outline: 0;
+	margin: 0;
+	border-width: 0 0 8px 0;
+	border-radius: 4px;
+	padding: 15px 15px 10px;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, .2);
+	font: bold 1.8em/100% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: #919896;
+	cursor: pointer;
+}
+
+button:after {
+	content: '';
+	-webkit-transition: all .15s ease-in-out;
+	transition: all .15s ease-in-out;
+	position: absolute;
+	overflow: hidden;
+	z-index: 1;
+	left: 0;
+	top: 50%;
+	right: 0;
+	height: 0;
+}
+
+button span {
+	position: relative;
+	z-index: 2;
+}
+
+button:hover {
+	transform: scale(1.125);
+	z-index: 2;
+}
+
+button:hover:after {
+	top: 0;
+	height: 100%;
+	transform: skew(0, 22deg);
+}
+
+button.start {
+	background-color: #00d523;
+	border-bottom-color: #00eb26;
+}
+
+button.start:after {
+	background-color: #00eb26;
+}
+
+button.stop {
+	background-color: #de2c30;
+	border-bottom-color: #ff3139;
+}
+
+button.stop:after {
+	background-color: #ff3139;
+}
+		</style>
+	</head>
+	<body>
+		<section class="sign">
+			<p>
+				<a href="#" class="red"><span>t</span></a>
+				<a href="#" class="yellow"><span>e</span></a>
+				<a href="#" class="pink"><span>s</span></a>
+				<a href="#" class="blue"><span>t</span></a>
+				<a href="#" class="green"><span>&nbsp;</span></a>
+				<a href="#" class="green"><span>i</span></a>
+				<a href="#" class="white"><span>n</span></a>
+				<a href="#" class="teal"><span>g</span></a>
+			</p>
+
+			<p>
+				<a href="#" class="red lit"><span>t</span></a>
+				<a href="#" class="yellow lit"><span>e</span></a>
+				<a href="#" class="pink lit"><span>s</span></a>
+				<a href="#" class="blue lit"><span>t</span></a>
+				<a href="#" class="green lit"><span>&nbsp;</span></a>
+				<a href="#" class="green lit"><span>i</span></a>
+				<a href="#" class="white lit"><span>n</span></a>
+				<a href="#" class="teal lit"><span>g</span></a>
+			</p>
+
+			<menu class="buttons">
+				<button class="start"><span>Start</span></button>
+				<button class="stop"><span>Stop</span></button>
+			</menu>
+		</section>
+	</body>
+</html>

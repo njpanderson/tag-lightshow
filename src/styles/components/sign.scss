@@ -1,0 +1,186 @@
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: black;
+	padding: 20px;
+	text-align: center;
+
+	&.bricks {
+		background-image: url(../img/sign/bricks.png);
+	}
+
+	&.fabric {
+		background-image: url(../img/sign/fabric.png);
+	}
+
+	&.speaker {
+		background-image: url(../img/sign/speaker.png);
+	}
+
+	&.stars {
+		background-image: url(../img/sign/stars.png);
+	}
+
+	&.tiles {
+		background-image: url(../img/sign/tiles.png);
+	}
+
+	&.wood {
+		background-image: url(../img/sign/wood.png);
+	}
+
+	.letters {
+		position: relative;
+		line-height: 1;
+		font-family: 'Neon Thick';
+		letter-spacing: -3px;
+	}
+
+	.letters:before,
+	.letters:after {
+		content: '';
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		border-radius: 3px;
+		width: 100%;
+		height: 6px;
+		background: linear-gradient(
+			to bottom,
+			#4c4c4c 0%,
+			#595959 12%,
+			#666666 25%,
+			#474747 39%,
+			#2c2c2c 50%,
+			#000000 51%,
+			#111111 60%,
+			#2b2b2b 76%,
+			#1c1c1c 91%,
+			#131313 100%
+		);
+	}
+
+	.letters:before {
+		top: 40%;
+	}
+
+	.letters:after {
+		top: 65%;
+	}
+
+	a {
+		position: relative;
+		z-index: 2;
+		text-decoration: none;
+		font-size: 120px;
+		text-shadow: 10px 10px 4px rgba(0, 0, 0, .7);
+	}
+
+	a:not(.lit) {
+		text-shadow: 1px 1px 0 rgba(100, 100, 100, .8),
+			-1px -1px 0 rgba(100, 100, 100, .8);
+	}
+
+	a.lit,
+	.all-lit a {
+		color: rgba(255, 255, 255, .95) !important;
+	}
+
+	a.red:not(.lit) {
+		color: #d0143a;
+	}
+
+	a.red.lit,
+	.all-lit a.red {
+		text-shadow: 0 0 20px #ff0039,
+			-10px -10px 5px rgba(255, 0, 57, .2),
+			2px 2px 3px #ff0039,
+			-2px -2px 3px #ff0039,
+			10px 10px 4px rgba(0, 0, 0, .7);
+	}
+
+	a.yellow:not(.lit) {
+		color: #ced60a;
+	}
+
+	a.yellow.lit,
+	.all-lit a.yellow {
+		text-shadow: 0 0 20px #e4ee00,
+			-10px -10px 5px rgba(228, 238, 0, .1),
+			2px 2px 3px #e4ee00,
+			-2px -2px 3px #e4ee00,
+			10px 10px 4px rgba(0, 0, 0, .7);
+	}
+
+	a.pink:not(.lit) {
+		color: #ce0fc0;
+	}
+
+	a.pink.lit,
+	.all-lit a.pink {
+		text-shadow: 0 0 20px #ff00ed,
+			-10px -10px 5px rgba(255, 0, 237, .2),
+			2px 2px 3px #ff00ed,
+			-2px -2px 3px #ff00ed,
+			10px 10px 4px rgba(0, 0, 0, .7);
+	}
+
+	a.blue:not(.lit) {
+		color: #4470f3;
+	}
+
+	a.blue.lit,
+	.all-lit a.blue {
+		text-shadow: 0 0 20px #4470f3,
+			-10px -10px 5px rgba(68, 112, 243, .2),
+			2px 2px 3px #4470f3,
+			-2px -2px 3px #4470f3,
+			10px 10px 4px rgba(0, 0, 0, .7);
+	}
+
+	a.green:not(.lit) {
+		color: #12a22d;
+	}
+
+	a.green.lit,
+	.all-lit a.green {
+		text-shadow: 0 0 20px #00f62d,
+			-10px -10px 5px rgba(0, 246, 45, .2),
+			2px 2px 3px #00f62d,
+			-2px -2px 3px #00f62d,
+			10px 10px 4px rgba(0, 0, 0, .7);
+	}
+
+	a.white:not(.lit) {
+		color: #dcdcde;
+	}
+
+	a.white.lit,
+	.all-lit a.white {
+		text-shadow: 0 0 20px #f7f9ff,
+			-10px -10px 5px rgba(255, 255, 255, .2),
+			2px 2px 3px #f7f9ff,
+			-2px -2px 3px #f7f9ff,
+			10px 10px 4px rgba(0, 0, 0, .7);
+	}
+
+	a.teal:not(.lit) {
+		color: #46b79a;
+	}
+
+	a.teal.lit,
+	.all-lit a.teal {
+		text-shadow: 0 0 20px #45ffce,
+			-10px -10px 5px rgba(69, 255, 206, .2),
+			2px 2px 3px #45ffce,
+			-2px -2px 3px #45ffce,
+			10px 10px 4px rgba(0, 0, 0, .7);
+	}
+}

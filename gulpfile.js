@@ -20,7 +20,7 @@ gulp.task('scripts:dev', ['clean:js', 'copy:lib'], () => {
 	process.env.NODE_ENV = 'development';
 
 	webpack_conf = require('./webpack.config.js');
-	webpack_conf.watch = watch;
+	// webpack_conf.watch = watch;
 
 	return gulp.src('src/js/*.js')
 		.pipe(plumber())
@@ -38,7 +38,7 @@ gulp.task('scripts:prod', ['clean:js', 'copy:lib'], () => {
 	process.env.NODE_ENV = 'production';
 
 	webpack_conf = require('./webpack.config.js');
-	webpack_conf.watch = false;
+	// webpack_conf.watch = false;
 
 	return gulp.src('src/js/*.js')
 		.pipe(debug())

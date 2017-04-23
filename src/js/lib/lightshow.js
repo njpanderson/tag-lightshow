@@ -7,8 +7,8 @@
 
 	$('.view').bind('tag:update', function() {
 		// update selections
-		$letters = $('.buttons a');
-		$container = $('.buttons');
+		$letters = $('section > p a');
+		$container = $('section > p');
 
 		// inject spans and apply class
 		$letters.each(function() {

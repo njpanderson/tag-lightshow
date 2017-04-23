@@ -1,16 +1,12 @@
-<header>
-	<h1>{{ h1 }}</h1>
-</header>
+<section {{ sign_class }}>
+	<p class="letters">
+		{{ letter|20 }}
+	</p>
 
-<main>
-	<section {{ section_class }}>
-		<div class="buttons">
-			{{ button|20 }}
-		</div>
+	<menu class="buttons">
+		{{ start_button }}
+		{{ stop_button }}
+	</menu>
 
-		<form>
-			{{ start_button }}
-			{{ stop_button }}
-		</form>
-	</section>
-</main>
+	<p class="note">Type a letter to see it light up, or use ”Start” to run the show!</p>
+</section>
