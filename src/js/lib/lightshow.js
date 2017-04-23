@@ -1,29 +1,34 @@
 (function($, view) {
 	var lit = {},
 		pattern_on = false,
-		$letters = $('.buttons a'),
-		$container = $('.buttons'),
 		animator = $({ value: 0 }),
-		letter_re = new RegExp('[a-z]+', 'i');
+		letter_re = new RegExp('[a-z]+', 'i'),
+		$letters, $container;
 
-	// inject spans and apply class
-	$letters.each(function() {
-		var $this = $(this);
+	$('.view').bind('tag:update', function() {
+		// update selections
+		$letters = $('.buttons a');
+		$container = $('.buttons');
 
-		$this
-			.addClass('letter-' + $.trim($this.text()))
-			.attr('data-key', $.trim($this.text().toLowerCase()));
-	});
+		// inject spans and apply class
+		$letters.each(function() {
+			var $this = $(this);
 
-	$container.on('click', 'a', function(event) {
-		event.preventDefault();
+			$this
+				.addClass('letter-' + $.trim($this.text()))
+				.attr('data-key', $.trim($this.text().toLowerCase()));
+		});
+
+		$container.on('click', 'a', function(event) {
+			event.preventDefault();
+		});
 	});
 
 	$(document).on('click', 'button', buttonRoute);
 
 	function buttonRoute(event) {
 		var $this = $(this);
-		console.log($letters.length);
+
 		if (!$letters.length) {
 			view.dialog(
 				'No letters yet!',
