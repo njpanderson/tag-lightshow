@@ -72,8 +72,7 @@ pallet = [
 			}
 		},
 		'guidance': '<p>This is a <b>button</b>. With all the parts in place, they will <b>light up</b> when you press the same key on your keyboard, or when you press the “Start” button.</p><p><b>Why not try making a word out of the letters?</b></p>'
-	},
-	{
+	}, {
 		'name': 'Start button',
 		'dropletType': 'element',
 		'tagName': 'button',
@@ -85,8 +84,7 @@ pallet = [
 		},
 		'innerHTML': '<span>Start</span>',
 		'guidance': '<p>Using <b>JavaScript</b>, this button will start the light show.</p>'
-	},
-	{
+	}, {
 		'name': 'Stop button',
 		'dropletType': 'element',
 		'tagName': 'button',
@@ -98,6 +96,12 @@ pallet = [
 		},
 		'innerHTML': '<span>Stop</span>',
 		'guidance': '<p>Using <b>JavaScript</b>, this button will stop the light show.</p>'
+	}, {
+		name: 'Instructions',
+		dropletType: 'text',
+		value: 'Type a letter to see it light up, or use the Start button to run the show!',
+		attachmentIds: ['instructions'],
+		guidance: '<p>Add some text on your page to tell visitors how to light up the letters.</p>'
 	}
 ];
 
