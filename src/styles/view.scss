@@ -2,6 +2,31 @@
 
 $font-family-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
+$pure-black: #000;
+$pure-white: #fff;
+$black: #333;
+$mid-grey: lighten($black, 10%);
+
+$red: #d0143a;
+$red-lit: #ff0039;
+$yellow: #ced60a;
+$yellow-lit: #e4ee00;
+$pink: #ce0fc0;
+$pink-lit: #ff00ed;
+$blue: #4470f3;
+$blue-lit: #2c7ffb;
+$green: #12a22d;
+$green-lit: #00f62d;
+$white: #dcdcde;
+$white-lit: #f7f9ff;
+$teal: #46b79a;
+$teal-lit: #45ffce;
+
+$btn-green: #00d523;
+$btn-green-border: #00eb26;
+$btn-red: #de2c30;
+$btn-red-border: #ff3139;
+
 @font-face {
 	font-family: 'Neon Thick';
 	src: url('../fonts/neon.woff') format('woff');

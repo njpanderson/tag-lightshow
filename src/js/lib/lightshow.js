@@ -79,6 +79,7 @@
 	function stopAll() {
 		animator.stop(true);
 		pattern_on = false;
+		lit = {};
 
 		$letters.each(function() {
 			light(this, false);

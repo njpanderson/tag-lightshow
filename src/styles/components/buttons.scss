@@ -29,7 +29,7 @@ button {
 	box-sizing: border-box;
 	-webkit-appearance: none;
 	overflow: hidden;
-	box-shadow: 5px 5px 0 rgba(0, 0, 0, .3);
+	box-shadow: 5px 5px 0 rgba($pure-black, .3);
 	outline: 0;
 	margin: 0;
 	border-width: 0 0 8px 0;
@@ -38,9 +38,9 @@ button {
 	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	text-shadow: -1px -1px 0 rgba(0, 0, 0, .2);
+	text-shadow: -1px -1px 0 rgba($pure-black, .2);
 	font: bold 1.8em/100% $font-family-text;
-	background-color: #919896;
+	background-color: $mid-grey;
 	cursor: pointer;
 }
 
@@ -74,19 +74,19 @@ button:hover:after {
 }
 
 button.start {
-	background-color: #00d523;
-	border-bottom-color: #00eb26;
+	background-color: $btn-green;
+	border-bottom-color: $btn-green-border;
 }
 
 button.start:after {
-	background-color: #00eb26;
+	background-color: $btn-green-border;
 }
 
 button.stop {
-	background-color: #de2c30;
-	border-bottom-color: #ff3139;
+	background-color: $btn-red;
+	border-bottom-color: $btn-red-border;
 }
 
 button.stop:after {
-	background-color: #ff3139;
+	background-color: $btn-red-border;
 }

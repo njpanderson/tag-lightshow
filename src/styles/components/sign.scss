@@ -80,107 +80,107 @@ section {
 		z-index: 2;
 		text-decoration: none;
 		font-size: 120px;
-		text-shadow: 10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 10px 10px 4px rgba($pure-black, .7);
 	}
 
 	a:not(.lit) {
-		text-shadow: 1px 1px 0 rgba(100, 100, 100, .8),
-			-1px -1px 0 rgba(100, 100, 100, .8);
+		text-shadow: 1px 1px 0 rgba($mid-grey, .8),
+			-1px -1px 0 rgba($mid-grey, .8);
 	}
 
 	a.lit,
 	.all-lit a {
-		color: rgba(255, 255, 255, .95) !important;
+		color: rgba($pure-white, .95) !important;
 	}
 
 	a.red:not(.lit) {
-		color: #d0143a;
+		color: $red;
 	}
 
 	a.red.lit,
 	.all-lit a.red {
-		text-shadow: 0 0 20px #ff0039,
-			-10px -10px 5px rgba(255, 0, 57, .2),
-			2px 2px 3px #ff0039,
-			-2px -2px 3px #ff0039,
-			10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 0 0 20px $red-lit,
+			-10px -10px 5px rgba($red-lit, .2),
+			2px 2px 3px $red-lit,
+			-2px -2px 3px $red-lit,
+			10px 10px 4px rgba($pure-black, .7);
 	}
 
 	a.yellow:not(.lit) {
-		color: #ced60a;
+		color: $yellow;
 	}
 
 	a.yellow.lit,
 	.all-lit a.yellow {
-		text-shadow: 0 0 20px #e4ee00,
-			-10px -10px 5px rgba(228, 238, 0, .1),
-			2px 2px 3px #e4ee00,
-			-2px -2px 3px #e4ee00,
-			10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 0 0 20px $yellow-lit,
+			-10px -10px 5px rgba($yellow-lit, .1),
+			2px 2px 3px $yellow-lit,
+			-2px -2px 3px $yellow-lit,
+			10px 10px 4px rgba($pure-black, .7);
 	}
 
 	a.pink:not(.lit) {
-		color: #ce0fc0;
+		color: $pink;
 	}
 
 	a.pink.lit,
 	.all-lit a.pink {
-		text-shadow: 0 0 20px #ff00ed,
-			-10px -10px 5px rgba(255, 0, 237, .2),
-			2px 2px 3px #ff00ed,
-			-2px -2px 3px #ff00ed,
-			10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 0 0 20px $pink-lit,
+			-10px -10px 5px rgba($pink, .2),
+			2px 2px 3px $pink-lit,
+			-2px -2px 3px $pink-lit,
+			10px 10px 4px rgba($pure-black, .7);
 	}
 
 	a.blue:not(.lit) {
-		color: #4470f3;
+		color: $blue;
 	}
 
 	a.blue.lit,
 	.all-lit a.blue {
-		text-shadow: 0 0 20px #4470f3,
-			-10px -10px 5px rgba(68, 112, 243, .2),
-			2px 2px 3px #4470f3,
-			-2px -2px 3px #4470f3,
-			10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 0 0 20px $blue-lit,
+			-10px -10px 5px rgba($blue-lit, .2),
+			2px 2px 3px $blue-lit,
+			-2px -2px 3px $blue-lit,
+			10px 10px 4px rgba($pure-black, .7);
 	}
 
 	a.green:not(.lit) {
-		color: #12a22d;
+		color: $green;
 	}
 
 	a.green.lit,
 	.all-lit a.green {
-		text-shadow: 0 0 20px #00f62d,
-			-10px -10px 5px rgba(0, 246, 45, .2),
-			2px 2px 3px #00f62d,
-			-2px -2px 3px #00f62d,
-			10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 0 0 20px $green-lit,
+			-10px -10px 5px rgba($green-lit, .2),
+			2px 2px 3px $green-lit,
+			-2px -2px 3px $green-lit,
+			10px 10px 4px rgba($pure-black, .7);
 	}
 
 	a.white:not(.lit) {
-		color: #dcdcde;
+		color: $white;
 	}
 
 	a.white.lit,
 	.all-lit a.white {
-		text-shadow: 0 0 20px #f7f9ff,
-			-10px -10px 5px rgba(255, 255, 255, .2),
-			2px 2px 3px #f7f9ff,
-			-2px -2px 3px #f7f9ff,
-			10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 0 0 20px $white-lit,
+			-10px -10px 5px rgba($white-lit, .2),
+			2px 2px 3px $white-lit,
+			-2px -2px 3px $white-lit,
+			10px 10px 4px rgba($pure-black, .7);
 	}
 
 	a.teal:not(.lit) {
-		color: #46b79a;
+		color: $teal;
 	}
 
 	a.teal.lit,
 	.all-lit a.teal {
-		text-shadow: 0 0 20px #45ffce,
-			-10px -10px 5px rgba(69, 255, 206, .2),
-			2px 2px 3px #45ffce,
-			-2px -2px 3px #45ffce,
-			10px 10px 4px rgba(0, 0, 0, .7);
+		text-shadow: 0 0 20px $teal-lit,
+			-10px -10px 5px rgba($teal-lit, .2),
+			2px 2px 3px $teal-lit,
+			-2px -2px 3px $teal-lit,
+			10px 10px 4px rgba($pure-black, .7);
 	}
 }
