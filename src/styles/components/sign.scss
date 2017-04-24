@@ -80,7 +80,7 @@ section {
 		z-index: 2;
 		text-decoration: none;
 		font-size: 120px;
-		text-shadow: 10px 10px 4px rgba($pure-black, .7);
+		text-shadow: 10px 10px 4px rgba($pure-black, .5);
 	}
 
 	a:not(.lit) {
@@ -103,7 +103,7 @@ section {
 			-10px -10px 5px rgba($red-lit, .2),
 			2px 2px 3px $red-lit,
 			-2px -2px 3px $red-lit,
-			10px 10px 4px rgba($pure-black, .7);
+			10px 10px 4px rgba($pure-black, .5);
 	}
 
 	a.yellow:not(.lit) {
@@ -116,7 +116,7 @@ section {
 			-10px -10px 5px rgba($yellow-lit, .1),
 			2px 2px 3px $yellow-lit,
 			-2px -2px 3px $yellow-lit,
-			10px 10px 4px rgba($pure-black, .7);
+			10px 10px 4px rgba($pure-black, .5);
 	}
 
 	a.pink:not(.lit) {
@@ -129,7 +129,7 @@ section {
 			-10px -10px 5px rgba($pink, .2),
 			2px 2px 3px $pink-lit,
 			-2px -2px 3px $pink-lit,
-			10px 10px 4px rgba($pure-black, .7);
+			10px 10px 4px rgba($pure-black, .5);
 	}
 
 	a.blue:not(.lit) {
@@ -142,7 +142,7 @@ section {
 			-10px -10px 5px rgba($blue-lit, .2),
 			2px 2px 3px $blue-lit,
 			-2px -2px 3px $blue-lit,
-			10px 10px 4px rgba($pure-black, .7);
+			10px 10px 4px rgba($pure-black, .5);
 	}
 
 	a.green:not(.lit) {
@@ -155,7 +155,7 @@ section {
 			-10px -10px 5px rgba($green-lit, .2),
 			2px 2px 3px $green-lit,
 			-2px -2px 3px $green-lit,
-			10px 10px 4px rgba($pure-black, .7);
+			10px 10px 4px rgba($pure-black, .5);
 	}
 
 	a.white:not(.lit) {
@@ -168,7 +168,7 @@ section {
 			-10px -10px 5px rgba($white-lit, .2),
 			2px 2px 3px $white-lit,
 			-2px -2px 3px $white-lit,
-			10px 10px 4px rgba($pure-black, .7);
+			10px 10px 4px rgba($pure-black, .5);
 	}
 
 	a.teal:not(.lit) {
@@ -181,6 +181,6 @@ section {
 			-10px -10px 5px rgba($teal-lit, .2),
 			2px 2px 3px $teal-lit,
 			-2px -2px 3px $teal-lit,
-			10px 10px 4px rgba($pure-black, .7);
+			10px 10px 4px rgba($pure-black, .5);
 	}
 }
