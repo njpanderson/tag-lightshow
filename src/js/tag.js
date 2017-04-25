@@ -3,12 +3,12 @@ var App = require('njp-tag'),
 
 app = new App({
 	onElementRender: function(markup, droplet, zone, is_output) {
-		if (droplet.name === 'Letter' && is_output) {
-			if (markup.innerHTML === ' ') {
+		if (is_output) {
+			if (droplet.name === 'Letter' && markup.innerHTML === ' ') {
 				markup.innerHTML = '-';
+			} else if (droplet.name.slice(-6) === 'button') {
+				markup.innerHTML = '<span>' + markup.innerHTML + '</span>';
 			}
-
-			markup.innerHTML = '<span>' + markup.innerHTML + '</span>';
 		}
 
 		return markup;
@@ -78,11 +78,9 @@ pallet = [
 		'tagName': 'button',
 		'attachmentIds': ['start_button'],
 		'attrs': {
-			'id': 'lights-start',
-			'type': 'button',
 			'class': 'start'
 		},
-		'innerHTML': '<span>Start</span>',
+		'innerHTML': 'Start',
 		'guidance': '<p>Using <b>JavaScript</b>, this button will start the light show.</p>'
 	}, {
 		'name': 'Stop button',
@@ -90,11 +88,9 @@ pallet = [
 		'tagName': 'button',
 		'attachmentIds': ['stop_button'],
 		'attrs': {
-			'id': 'lights-stop',
-			'type': 'button',
 			'class': 'stop'
 		},
-		'innerHTML': '<span>Stop</span>',
+		'innerHTML': 'Stop',
 		'guidance': '<p>Using <b>JavaScript</b>, this button will stop the light show.</p>'
 	}, {
 		name: 'Instructions',

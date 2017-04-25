@@ -10,6 +10,8 @@
 		$letters = $('section > p a');
 		$container = $('section > p');
 
+		stopAll();
+
 		// inject spans and apply class
 		$letters.each(function() {
 			var $this = $(this);
@@ -29,6 +31,8 @@
 	function buttonRoute(event) {
 		var $this = $(this);
 
+		event.preventDefault();
+
 		if (!$letters.length) {
 			view.dialog(
 				'No letters yet!',
@@ -38,7 +42,7 @@
 				]
 			);
 		} else {
-			if ($this[0].id === 'lights-start') {
+			if ($this.hasClass('start')) {
 				lightPattern();
 			} else {
 				stopAll();
