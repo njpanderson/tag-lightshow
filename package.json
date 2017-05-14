@@ -10,11 +10,8 @@
   },
   "keywords": [],
   "author": "Neil Anderson <njp.anderson@icloud.com> (http://neilinscotland.net)",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/njpanderson/tag-lightshow.git"
-  },
+  "license": "Apache-2.0",
+  "repository": "git+https://github.com/njpanderson/tag-lightshow.git",
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
@@ -33,5 +30,8 @@
     "webpack": "^2.4.1",
     "webpack-notifier": "^1.5.0",
     "webpack-stream": "^3.2.0"
+  },
+  "dependencies": {
+    "njp-tag": "^0.0.4"
   }
 }
