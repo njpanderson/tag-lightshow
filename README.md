@@ -1,1 +1,3 @@
-**WARNING: This project is currenty UNLICENSED and is pending an appropriate open source license. For now, please do not make copies or distribute this project, or use it in any public-facing projects.**
+## tag
+
+This is a demo implementation of [tag](https://github.com/njpanderson/tag). You can find out more about it at the original repository, or see a demo of it in use here: http://neilinscotland.net/tag/
